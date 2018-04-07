@@ -1,0 +1,247 @@
+Firmware Marlin
+Codici Implementati
+
+G0
+Movimento Rapido
+esempio: G0 X11 movimento rapido in X=11mm.
+
+G1
+Movimento Controllato X Y Z E
+esempio: G1 X90.6 Y13.8 E22.4 si muove dall'attuale posizione (X,Y) a (90.6 13.8) estrudendo il materiale dalla posizione attuale a quella finale dall'attuale lunghezza di estrusione a quella di 22.4
+
+G2
+Movimento controllato ad arco in senso orario
+esempio: G2 X90.6 Y13.8 I5 J10 E22.4 va dall'attuale posizione (X,Y) con movimento ad arco orario alla posizione (90.6 13.8) mantenendo una distanza costante dal punto (5 10) estrudendo il materiale dalla posizione attuale a quella finale dall'attuale lunghezza di estrusione a quella di 22.4
+
+G3
+Movimento controllato ad arco in senso antiorario
+esempio: G2 X90.6 Y13.8 I5 J10 E22.4 va dall'attuale posizione (X,Y) con movimento ad arco antiorario alla posizione (90.6 13.8) mantenendo una distanza costante dal punto (5 10) estrudendo il materiale dalla posizione attuale a quella finale dall'attuale lunghezza di estrusione a quella di 22.4
+
+G4
+Pausa per S o P
+esempio: G4 P200
+non fare nulla per 200 msec. Durante questa pausa lo stato della macchina viene mantenuto costante e controllato.
+
+G10
+Ritrae il filamento in accordo con le specifiche del comando M207
+
+G11
+Ritrae e recupera il filamento in accordo con le specifiche del comando M208
+
+G28
+Ritorna al punto d'origine degli assi
+
+G29
+Comando per il Test del piano di stampa. Usa un test su tre punti.
+
+G30
+Comando per il test del piano di stampa. Usa un solo punto di test
+
+G31
+Riporta l'attuale stato del test.
+
+G32
+Testa Z e calcola la posizione del piano Z
+
+G90
+Usa coordinate assolute
+
+G91
+Usa coordinate relative
+
+G92
+Imposta le coordinate
+esempio: G92 X10 E90 consente la programmazione dello zero assoluto, per resettare la posizione corrente ai valori specificati. Nell'esempio si imposta a 10 X e a 90 l'estrusione. Non si verificherà nessun movimento fisico. Senza nessuna specifica, il comando resetterà tutti gli assi a zero.
+
+RepRap Codici M
+
+M0
+Stop.
+Esempio: M0
+La macchina si ferma torna alla sua posizione di riposo, poi si spegne. Tutti i motori e riscaldatori si spengono. La macchina si riavvia premendo il tasto di Reset
+
+M1
+Sleep.
+Esempio: M1
+La macchina si ferma torna alla sua posizione di riposo, poi si spegne. Tutti i motori e riscaldatori si spengono. La macchina si riavvia premendo qualsiasi tasto
+
+M104
+Imposta la temperatura dell'estrusore selezionato
+Esempio: M104 S190 imposta la temperatura dell'estrusore a 190°C
+
+M105
+Legge la temperatura corrente dal sensore
+
+M106
+Ventola on
+
+M107
+Ventola off
+
+M108
+Imposta la velocità di estrusione
+
+M109
+Imposta la temperatura di estrusione ed attende
+
+M110
+Imposta la linea corrente del G-code
+
+M114
+Visualizza la posizione attuale
+
+M115
+Visualizza la versione corrente del firmware
+Codici Custom M
+
+M17
+Accende o spegne tutti i motori passo passo
+
+M18
+Spegne i motori passo passo come il comando M84
+
+M20
+Mostra il contenuto della SD card
+
+M21
+Inizializza la SD card
+
+M22
+Consente di rimuovere la SD card
+
+M23
+Seleziona un file dalla SD
+
+M24
+Inizia o riprende la stampa di un file della SD
+
+M25
+Pausa della stampa dalla SD
+
+M26
+Imposta la posizione della SD in bytes
+
+M27
+Riporta lo stato della stampa del file della SD
+
+M28
+Inizia a scrivere nella SD
+
+M29
+Termina la scrittura nella SD
+
+M30
+Cancella un file dalla SD
+
+M41
+Stampa in loop
+
+M42
+Cambia lo stato del pin via gcode
+
+M80
+Accende l'alimentatore
+
+M81
+Spegne l'alimentatore
+
+M82
+Seleziona i codici assoluti dell'estrusore E (default)
+
+M83
+Seleziona i codici relativi dell'etrusore E
+
+M84
+Disabilita i passo passo fino al prossimo movimento, o usa S per specificare un tempo di attesa, prima che gli steppers vengano disabilitati. S0 si usa per disabilitare l'attesa.
+
+M85
+Imposta il timer di spegnimento mediante il parametro S. Per disabilitarlo porre a zero (default)
+
+M92
+Imposta la programmazione dei passi per gli assi, utile per la calibrazione
+
+M114
+Manda nella porta seriale la posizione attuale
+
+M115
+Comunica l'attuale versione del Firmware e la capacità del microcontrollore usato
+
+M117
+Visualizza un messaggio
+esempio: M117 Ciao mondo
+visualizza sull'LCD la frase Ciao mondo
+
+M119
+Comunica alla porta seriale che è presente uno stato di endstop
+
+M140
+Imposta la temperatura del piano di stampa
+
+M190
+Aspetta finché la temperatura del piano di stampa non raggiunge quella impostata
+
+M200
+Imposta il diametro del filamento
+
+M201
+Imposta la massima accelerazione di stampa in unità/s^2 per i movimenti durante la stampa (M201 X1000 Y1000)
+
+M202
+Imposta la massima accelerazione in units/s^2 per i movimenti non di stampa (M202 X1000 Y1000) Non usato nel firmware Marlin!!
+
+M203
+Imposta la massima velocità di estrusione della macchina (M203 X200 Y200 Z300 E10000) in mm/sec
+
+M204
+Imposta la velocità di default: S per i normali movimenti; T solo per i movimenti dell'erogatore del materiale (M204 S3000 T7000) in mm/sec^2 in segmenti di tempo mini, espressi in in ms (B20000)
+
+M205
+Impostazioni avanzate: velocità minima di moviemnto S=durante la stampa T=solo movimenti, B=minimo segmento temporale X= massimo strappo xy, Z=massimo strappo Z , E=massimo strappo E
+
+M206
+Imposta un punto di riposo addizionale
+
+M207
+Imposta la lunghezza di ritrazione S[positivo mm] F[feedrate mm/sec] Z[additional zlift/hop]
+
+M208
+Imposta il massimo movimento per gli assi
+
+M209
+Abilita la ritrazione automatica
+
+M220
+S- imposta il valore del fattore di override di velocità in percentuale
+
+M221
+S- imposta il valore del fattore di override di estrusione in percentuale
+
+M240
+Impulso di trigger per scattare una foto
+
+M301
+Imposta i paramentri PID, P I e D
+
+M302
+Abilita l'estrusione a freddo
+
+M303
+PID relay autotune S imposta la temperatura (default = 150C)
+
+M400
+Finisce tutti i movimenti
+
+M500
+Memorizza i parametri nella EEPROM
+
+M501
+Legge i parametri dalla EEPROM
+
+M502
+Ritorna ai paramentri di fabbrica. Naturalmente questi devono essere stati memorizzati nella EEPROM precedentemente
+
+M503
+Stampa gli attuali paramentri (dalla memoria non dalla eeprom)
+
+M999
+Riavvia dopo un errore
