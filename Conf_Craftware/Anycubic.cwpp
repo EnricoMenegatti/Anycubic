@@ -7,7 +7,7 @@
     "Height": 300,
     "Icon": "cw_logo_small.png",
     "Offset": 0,
-    "PrinterFooter": "G0 X0 Y0 F7200",
+    "PrinterFooter": "",
     "PrinterHeader": "G28 X0 Y0\nG28 Z0",
     "Width": 230,
     "WidthDirection": 0,
