@@ -1,3 +1,0 @@
-Sources for Arduino uno + big breadboard holder
-
-Arduino uno + half size breadboard holder (https://www.thingiverse.com/thing:63900)
