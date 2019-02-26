@@ -1,0 +1,22 @@
+LABCENTER PROTEUS PICK AND PLACE FILE
+=====================================
+
+Component positions for Partitore_l78XX.pdsprj
+
+Fields: Part ID, Value, Package, Stock Code, Layer, Rotation, X, Y
+Units:  Rotation - degrees, X, Y  - mm
+Notes:  The X, Y value is the centre of package as drawn in ARES.
+        The origin for these values is the Output Origin.
+        The values are a guide only and must be checked manually when
+        setting up automatic insertion equipment.
+
+"C1","1uF","ELEC-RAD10","",TOP,0,-111.23,92.5
+"C2","1uF","ELEC-RAD10","",TOP,0,-101.23,92.5
+"C3","1uF","ELEC-RAD10","",TOP,0,-91.23,92.5
+"C4","1uF","ELEC-RAD10","",TOP,0,-83.73,92.5
+"R1","10k","RES40","",TOP,90,-115,95.08
+"U1","7824","P1","",TOP,0,-110,97.5
+"U2","7812","P1","",TOP,0,-100,97.5
+"U3","7805","P1","",TOP,0,-90,97.5
+"J1","TBLOCK-I2","TBLOCK-I2","",TOP,90,-115,82.54
+"J2","TBLOCK-I4","TBLOCK-I4","",TOP,180,-97.46,82.5
