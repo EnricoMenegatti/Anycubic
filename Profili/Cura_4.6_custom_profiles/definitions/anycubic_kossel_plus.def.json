@@ -1,0 +1,50 @@
+{
+    "name": "Anycubic Kossel Plus",
+    "version": 2,
+    "inherits": "fdmprinter",
+    "metadata": 
+    {
+        "visible": true,
+        "author": "J Harris",
+        "manufacturer": "Anycubic",
+        "file_formats": "text/x-gcode",
+
+        "has_machine_quality": true,
+        "has_materials": true,
+        "has_variant_buildplates": false,
+        "has_variants": true,
+        "preferred_variant_name": "0.6",
+        "preferred_quality_type": "normal",
+        "preferred_material": "personale_pla",
+
+        "machine_extruder_trains":
+        {
+            "0": "anycubic_kossel_plus_extruder_0",
+            "1": "anycubic_kossel_plus_extruder_1"
+        }
+    },
+    
+    "overrides": {
+        "machine_name": { "default_value": "Anycubic Kossel Plus" },
+        "machine_width": {"default_value": 240},
+        "machine_depth": {"default_value": 240},
+        "machine_height": {"default_value": 270},
+        "machine_shape": {"default_value": "elliptic"},
+        "machine_center_is_zero": {"default_value": true},
+        "machine_heated_bed": {"default_value": true},
+        "machine_gcode_flavor": {"default_value": "RepRap (Marlin/Sprinter)"},
+        
+        "machine_extruder_count": {"default_value": 2},
+        "machine_extruders_share_heater": {"default_value": true},
+
+        "machine_start_gcode": {"default_value": ";start GCode\nG21;metric values\nG90;absolute positioning\nM107;start with the fan off\nG28;move to endstops\nM420 S1;turn on bed leveling\nM355 S1 P255;turn on case light\nG92 E0;zero the extruded length\nG1 F2000 E3;extrude 3mm of feed stock\nG92 E0;zero the extruded length again\nG1 Z10 F6000"},
+        "machine_end_gcode": {"default_value": ";End GCode\nM104 S0;extruder heater off\nM140 S0;heated bed heater off (if you have it)\nG91;relative positioning\nG1 E-1 F2000;retract the filament a bit before lifting the nozzle, to release some of the pressure\nG1 Z1 E-5 F3000;move Z up a bit and retract filament even more\nG27;move to nozzle parking\nM107;turn off fan\nM355 S0;turn off case light"},
+        
+        "material_print_temp_wait": { "default_value": true },
+        "material_bed_temp_wait": { "default_value": false },
+        "machine_nozzle_heat_up_speed": {"default_value": 2},
+        "machine_nozzle_cool_down_speed": {"default_value": 2},       
+        "machine_disallowed_areas": {"default_value": [[[-50,  -115], [ -115,  -115], [-90,  -90]], [[-115, -115], [-115, -50], [-90, -90]], [[50,  -115], [ 115,  -115], [90,  -90]], [[115, -115], [115, -50], [90, -90]], [[-50,  115], [ -115,  115], [-90,  90]], [[-115, 115], [-115, 50], [-90, 90]], [[50,  115], [ 115,  115], [90,  90]], [[115, 115], [115, 50], [90, 90]]]
+        }
+    }
+}
